@@ -3,7 +3,7 @@
         <ul>
             <li v-for="(row, index) in notes" :key="index">
                 <button class="btn-note">
-                    <label for="">{{ row.title }}</label>
+                    <label>{{ row.title }}</label>
                     <span>{{ row.description }}</span>
                 </button>
             </li>
