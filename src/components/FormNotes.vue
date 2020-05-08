@@ -1,25 +1,39 @@
 <template>
     <div class="form-notes">
-        <div class="menu">
-            <button type="button" class="bg-danger btn btn-delete">Delete</button>
-            <button type="submit" class="bg-success btn">Save</button>
-        </div>
+        <form @submit="submitNote">
+            <div class="menu">
+                <button type="button" class="bg-danger btn btn-delete">Delete</button>
+                <button type="submit" class="bg-success btn">Save</button>
+            </div>
 
-        <div class="content">
-            <input type="text" class="text" placeholder="Title">
-            <textarea class="text texarea" placeholder="Tuliskan rencanamu ..."></textarea>
-        </div>
+            <div class="content">
+                <input type="text" class="text" placeholder="Title" v-model="title">
+                <textarea class="text textarea" placeholder="Tuliskan rencanamu ..." v-model="description"></textarea>
+            </div>
+        </form>
     </div>
 </template>
 
 <script>
 export default {
     name: 'FormNotes',
+    props: {
+        propSaveNote: {
+            type: Function
+        }
+    },
     data: function () {
         return {
-            
+            title: '',
+            description: ''
         }
-    }
+    },
+    methods: {
+        submitNote(e){
+            e.preventDefault();
+            this.propSaveNote(this.title, this.description);
+        }
+    },
 }
 </script>
 

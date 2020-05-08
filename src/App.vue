@@ -8,16 +8,16 @@
         </a>
       </div>
       <div class="frame-notes">
-        <button @click="newNotes" class="bg-success btn btn-new-note">+ New Note
+        <button @click="newNote" class="bg-success btn btn-new-note">+ New Note
         </button>
         
-        <ListNotes />
+        <ListNotes :propNotes= "notes"/>
       </div>
       <!-- List -->
     </div>
     <div class="kanan">
       <!-- Form -->
-      <FormNotes />
+      <FormNotes :propSaveNote= "saveNote" />
     </div>
   </div>
 </template>
@@ -29,10 +29,31 @@ import FormNotes from './components/FormNotes.vue'
 
 export default {
   name: 'App',
+  data: function () {
+       return {
+          notes : 
+          [
+               { title: 'Note 1', description: 'Ini isi note 1' },
+               { title: 'Note 2', description: 'Ini isi note 2' }
+          ]
+        }
+    },
   components: {
        ListNotes,
        FormNotes
-     }
+  },
+  methods: {
+       newNote(){
+
+       },
+       saveNote(title, description){
+          let newNote = {
+               'title': title,
+               'description': description
+          }
+          this.notes.push(newNote);
+       },
+  },
 }
 </script>
 
