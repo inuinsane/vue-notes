@@ -2,14 +2,16 @@
   <div id="app">
     <div class="kiri">
       <div class="logo">
-        <a href="https://github.com/inuinsane">
-          <h2>Wegodev</h2>
+        <a href="https://github.com/inuinsane" target="blank">
+          <h2>Vue</h2>
           <span>Notes</span>
         </a>
       </div>
       <div class="frame-notes">
         <button @click="newNotes" class="bg-success btn btn-new-note">+ New Note
         </button>
+        
+        <ListNotes />
       </div>
       <!-- List -->
     </div>
@@ -20,13 +22,14 @@
 </template>
 
 <script>
+import ListNotes from './components/ListNotes.vue'
 // import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
-
-  }
+       ListNotes
+     }
 }
 </script>
 
